@@ -65,7 +65,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
+            'url' => 'pgsql://' . env('DB_USERNAME', 'forge') . ':' . env('DB_PASSWORD', '') . '@' . env('DB_HOST', '127.0.0.1') . ':' . env('DB_PORT', '5432') . '/' . env('DB_DATABASE', 'forge') . '?sslmode=verify-ca&sslcert=' . env('DB_SSL_CERT') . '&sslkey=' . env('DB_SSL_KEY') . '&sslrootcert=' . env('DB_SSL_ROOT_CERT'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -76,11 +76,6 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => 'verify-ca',
-            'options' => [
-                PDO::PGSQL_ATTR_SSL_ROOT_CERT => storage_path('app/ca.pem'),
-                PDO::PGSQL_ATTR_SSL_CERT => storage_path('app/client.crt'),
-                PDO::PGSQL_ATTR_SSL_KEY => storage_path('app/client.key'),
-            ],
         ],
 
         'sqlsrv' => [
