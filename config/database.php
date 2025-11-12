@@ -75,7 +75,10 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'require',
+            'sslmode' => 'verify-ca',
+            'options' => [
+                PDO::PGSQL_ATTR_SSL_ROOT_CERT => storage_path('app/ca.pem'),  // Caminho para o certificado CA baixado
+            ],
         ],
 
         'sqlsrv' => [
