@@ -77,7 +77,9 @@ return [
             'search_path' => 'public',
             'sslmode' => 'verify-ca',
             'options' => [
-                PDO::PGSQL_ATTR_SSL_ROOT_CERT => storage_path('app/ca.pem'),  // Caminho para o certificado CA baixado
+                PDO::PGSQL_ATTR_SSL_ROOT_CERT => storage_path('app/ca.pem'),
+                PDO::PGSQL_ATTR_SSL_CERT => storage_path('app/client.crt'),
+                PDO::PGSQL_ATTR_SSL_KEY => storage_path('app/client.key'),
             ],
         ],
 
