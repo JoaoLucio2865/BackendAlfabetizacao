@@ -2,4 +2,4 @@
 NAME=BackendAlfabetizacao
 DESCRIPTION=API Laravel
 MAIN=public/index.php
-START=composer install --no-dev --optimize-autoloader && php artisan serve --host=0.0.0.0 --port=80
+START=composer install --no-dev --optimize-autoloader && php artisan serve --host=0.0.0.0 --port=$PORT
