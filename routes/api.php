@@ -3,10 +3,12 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\UserController;  // Novo: Import do UserController
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/users/check-role', [UserController::class, 'checkRole']);  // Novo: Rota para verificar role
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/progress', [ProgressController::class, 'index']);
