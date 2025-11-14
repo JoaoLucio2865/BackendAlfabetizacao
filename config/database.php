@@ -65,7 +65,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => 'pgsql://' . env('DB_USERNAME', 'forge') . ':' . env('DB_PASSWORD', '') . '@' . env('DB_HOST', '127.0.0.1') . ':' . env('DB_PORT', '5432') . '/' . env('DB_DATABASE', 'forge') . '?sslmode=verify-ca&sslcert=' . env('DB_SSL_CERT') . '&sslkey=' . env('DB_SSL_KEY') . '&sslrootcert=' . env('DB_SSL_ROOT_CERT'),
+            'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -75,7 +75,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'verify-ca',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
